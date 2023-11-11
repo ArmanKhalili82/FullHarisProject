@@ -13,6 +13,11 @@ namespace HarisProject.Business
         {
 
         }
+
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) 
+        {
+            
+        }
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         => options.UseSqlServer(@"Server =.;Database =MyDB;Encrypt=False;Integrated Security=True");
 
