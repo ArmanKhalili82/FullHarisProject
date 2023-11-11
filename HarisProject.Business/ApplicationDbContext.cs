@@ -14,6 +14,9 @@ namespace HarisProject.Business
         {
         }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+        => options.UseSqlServer($"Server=.");
+
         public DbSet<Store> stores { get; set; }
     }
 }
