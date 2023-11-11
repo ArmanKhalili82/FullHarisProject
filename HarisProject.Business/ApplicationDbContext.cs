@@ -15,7 +15,7 @@ namespace HarisProject.Business
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
-        => options.UseSqlServer($"Server=.");
+        => options.UseSqlServer(@"Server =.;Database =MyDB;Encrypt=False;Integrated Security=True");
 
         public DbSet<Store> stores { get; set; }
     }
