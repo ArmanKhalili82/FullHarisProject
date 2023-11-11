@@ -18,7 +18,7 @@ while (true)
     var store = await db.stores.Where(s => s.Number == n).FirstOrDefaultAsync();
     if (store == null)
     {
-        await db.SaveChangesAsync();
+        db.stores.Add(new Store() { Number = n, Word = str });
     }
 
     Console.WriteLine(str);
