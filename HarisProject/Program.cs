@@ -1,9 +1,10 @@
 ﻿using HarisProject.Business;
+using Microsoft.EntityFrameworkCore;
+
+var db = new ApplicationDbContext();
 
 while (true)
 {
-    var db = new ApplicationDbContext();
-
     var p = new HarisNumber();
 
     Console.WriteLine("Enter Your Number:");
@@ -13,6 +14,12 @@ while (true)
 
     db.stores.Add(new Store() { Number = n, Word = str });
     await db.SaveChangesAsync();
+
+    var store = await db.stores.Where(s => s.Number == n).FirstOrDefaultAsync();
+    if (store == null)
+    {
+        await db.SaveChangesAsync();
+    }
 
     Console.WriteLine(str);
 }
