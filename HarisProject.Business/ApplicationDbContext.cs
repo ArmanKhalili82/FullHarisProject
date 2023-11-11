@@ -14,6 +14,6 @@ namespace HarisProject.Business
         {
         }
 
-        DbSet<Store> stores { get; set; }
+        public DbSet<Store> stores { get; set; }
     }
 }
